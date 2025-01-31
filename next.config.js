@@ -45,14 +45,11 @@ const nextConfig = withBundleAnalyzer({
   images: {
     minimumCacheTTL: 60 * 60 * 24 * 365, // 1 year,
     remotePatterns: [
-      ...[NEXT_PUBLIC_SERVER_URL /* 'https://example.com' */].map((item) => {
-        const url = new URL(item)
-
-        return {
-          hostname: url.hostname,
-          protocol: url.protocol.replace(':', ''),
-        }
-      }),
+      {
+        protocol: 'https',
+        hostname: 'payloasite.payloadcms.app',
+        port: '',
+      },
       {
         protocol: 'https',
         hostname: 'cms.payloadcms.com',
